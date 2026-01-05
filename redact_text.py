@@ -11,7 +11,7 @@ class Redact:
 			return token.text
 
 	def scrub(self, text_file):
-		text = Path(text_file).read_text()
+		text = Path(text_file).read_text(encoding="utf-8")
 		doc = self.nlp(text)
 		with doc.retokenize() as retokenizer:
 			for ent in doc.ents:
